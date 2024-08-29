@@ -72,12 +72,12 @@ const Watch = () => {
   }, []);
 
   return (
-    <div className="ml-4 mt-2 flex  w-[100%]">
-      <div className="flex w-[88%]">
-        <div>
+    <div className="ml-4 mt-2 flex flex-wrap w-[100%]">
+      <div className="flex flex-col lg:flex-row w-full">
+        <div className="w-full lg:w-[70%]">
           <iframe
-            width="860"
-            height="600"
+            width="100%"
+            height="400"
             src={`https://www.youtube.com/embed/${videoId}?&autoplay=1`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -88,12 +88,11 @@ const Watch = () => {
           <h1 className="font-bold mt-2 text-lg">
             {singleVideo?.snippet?.title}
           </h1>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center justify-between w-[35%] ">
-              <div className="flex   ">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
+            <div className="flex items-center w-full lg:w-[85%] mb-4 lg:mb-0">
+              <div className="flex items-center">
                 <Avatar
                   className="cursor-pointer"
-                  // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRedhsAofqDCJPTumMvVpODgSESIfBIZGtmhsvO3yb5BA&s"
                   src={ytIcons}
                   size={35}
                   round={true}
@@ -102,17 +101,17 @@ const Watch = () => {
                   {singleVideo?.snippet?.channelTitle}
                 </h1>
               </div>
-              <button className="px-4 py-1 font-medium bg-black text-white rounded-full">
+              <button className="px-4 py-1 font-medium bg-black text-white rounded-full ml-4">
                 Subscribe
               </button>
             </div>
-            <div className="flex justify-between items-center w-[38%] mt-2">
+            <div className="flex justify-between items-center w-full lg:w-[38%] mt-2 lg:mt-0">
               <div className="flex cursor-pointer bg-gray-200 px-2 py-3 rounded-full">
                 <AiFillLike size="20px" className="mr-3 ml-2" />
                 <AiFillDislike size="20px" className="mr-2" />
               </div>
               <div className="flex items-center cursor-pointer bg-gray-200 rounded-full px-3 py-2">
-                <FaShareAlt size="20px" className=" " />
+                <FaShareAlt size="20px" />
                 Share
               </div>
               <div className="flex items-center cursor-pointer bg-gray-200 rounded-full px-3 py-2">
@@ -123,32 +122,30 @@ const Watch = () => {
           </div>
         </div>
 
-        <div className="w-[100%] border border-gray-700 ml-5 rounded-lg h-fit p-4">
-          <div className="flex items-center justify-between ">
+        <div className="w-full lg:w-[30%]  border border-gray-700 ml-0 lg:ml-5 rounded-lg h-fit p-4">
+          <div className="flex items-center justify-between">
             <h1>Live Chat</h1>
             <BsThreeDotsVertical />
           </div>
           <div className="overflow-y-auto h-[31rem] flex flex-col-reverse">
             <LiveChat />
           </div>
-          <div className="flex items-center justify-between border-t  ">
-            <div className="flex items-center w-[90%]">
-              <div>
-                <Avatar
-                  className="cursor-pointer"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRedhsAofqDCJPTumMvVpODgSESIfBIZGtmhsvO3yb5BA&s"
-                  size={35}
-                  round={true}
-                />
-              </div>
+          <div className="flex items-center justify-between border-t pt-2">
+            <div className="flex items-center w-full">
+              <Avatar
+                className="cursor-pointer"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRedhsAofqDCJPTumMvVpODgSESIfBIZGtmhsvO3yb5BA&s"
+                size={35}
+                round={true}
+              />
               <input
                 value={input}
-                className="border-b border-gray-800 outline-none ml-2"
+                className="border-b border-gray-800 outline-none ml-2 w-full"
                 type="text"
                 placeholder="Send Message..."
                 onChange={(e) => setInput(e.target.value)}
               />
-              <div className="bg-gray-300 p-2 rounded-full">
+              <div className="bg-gray-300 p-2 rounded-full ml-2">
                 <IoSend
                   onClick={sendMessage}
                   className="cursor-pointer"
